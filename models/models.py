@@ -28,7 +28,7 @@ class Signature():
 
 class Stats():
     def __init__(self, actor_class=None, w=1.0):
-        print w
+        #print w
         if actor_class is None:
             self.hp = 1
             self.attack = 1
@@ -46,6 +46,12 @@ class Stats():
             self.attack = 5 + math.sqrt(w)
             self.defense = 5 + w*math.log(w)
             self.speed = 1 + math.log(w/10 + 5)
+
+        if actor_class == "SEEKER":
+            self.hp = 10 + 2*math.sqrt(w)
+            self.attack = 1 + math.sqrt(w)
+            self.defense = 1 + math.sqrt(w)
+            self.speed = 2 + math.log(w)
 
         if actor_class == "SWARM":
             self.hp = 5 + math.sqrt(w)
